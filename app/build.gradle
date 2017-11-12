@@ -1,15 +1,22 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion rootProject.androidCompileSdkVersion
+    buildToolsVersion rootProject.androidBuildToolsVersion
+
     defaultConfig {
         applicationId "com.jrdev9.movies"
+        versionCode 1
+        versionName "0.0.0"
+
+        minSdkVersion rootProject.androidMinSdkVersion
+        targetSdkVersion rootProject.androidTargetSdkVersion
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             postprocessing {
@@ -25,9 +32,40 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    // Android libs
+    implementation rootProject.androidLibs.support
+    implementation rootProject.androidLibs.appcompat
+    implementation rootProject.androidLibs.constraintLayout
+
+    // Third libs
+    implementation rootProject.libs.dagger
+    annotationProcessor rootProject.libs.daggerSupport
+    implementation rootProject.libs.daggerAndroid
+    implementation rootProject.libs.daggerAndroidSupport
+    annotationProcessor rootProject.libs.daggerAndroidProcessor
+    implementation rootProject.libs.butterKnife
+    annotationProcessor rootProject.libs.butterKnifeProcessor
+    implementation rootProject.libs.threadDecoratorView
+    annotationProcessor rootProject.libs.threadDecoratorViewCompiler
+    implementation rootProject.libs.retrofit
+    implementation rootProject.libs.gsonRetrofit
+    implementation rootProject.libs.okHttp3
+    implementation rootProject.libs.urlConnection
+    implementation rootProject.libs.logginInterceptor
+
+    // Android test libs
+    androidTestCompile(rootProject.testAndroidLibs.espressoCore, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    androidTestCompile(rootProject.testAndroidLibs.testRunner, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    androidTestCompile(rootProject.testAndroidLibs.testRules, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    // Test libs unit
+    testCompile rootProject.testLibs.junit
 }
+

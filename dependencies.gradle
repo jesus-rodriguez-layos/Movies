@@ -1,0 +1,71 @@
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+ext {
+    buildGradleVersion = '3.1.0-alpha02'
+
+    // Android config
+    androidBuildToolsVersion = '27.0.0'
+    androidMinSdkVersion = 19
+    androidTargetSdkVersion = 27
+    androidCompileSdkVersion = 27
+
+    // Android libraries
+    versionSupportLibrary = '27.0.0'
+    versionConstraintLayout = '1.0.2'
+
+    // Third party Libraries
+    versionDagger = '2.13'
+    versionButterKnife = '8.7.0'
+    versionThreadDecoratorView = '1.5.3'
+    versionRetrofit = '2.3.0'
+    versionOkHttp3 = '3.9.0'
+
+    // Android Test Libraries
+    versionEspresso = '3.0.1'
+    versionRunner = '1.0.1'
+
+    // Test Libraries
+    versionJunit = '4.12'
+
+    buildPlugins = [
+            gradle: "com.android.tools.build:gradle:${buildGradleVersion}"
+    ]
+
+    androidLibs = [
+            support         : "com.android.support:support-compat:${versionSupportLibrary}",
+            appcompat       : "com.android.support:appcompat-v7:${versionSupportLibrary}",
+            constraintLayout: "com.android.support.constraint:constraint-layout:${versionConstraintLayout}"
+    ]
+
+    libs = [
+            dagger                : "com.google.dagger:dagger:${versionDagger}",
+            daggerSupport         : "com.google.dagger:dagger-compiler:${versionDagger}",
+            daggerAndroid         : "com.google.dagger:dagger-android:${versionDagger}",
+            daggerAndroidSupport  : "com.google.dagger:dagger-android-support:${versionDagger}",
+            daggerAndroidProcessor: "com.google.dagger:dagger-android-processor:${versionDagger}",
+            butterKnife           : "com.jakewharton:butterknife:${versionButterKnife}",
+            butterKnifeProcessor  : "com.jakewharton:butterknife-compiler:${versionButterKnife}",
+            threadDecoratorView            : "me.panavtec:threaddecoratedview-common:${versionThreadDecoratorView}",
+            threadDecoratorViewCompiler    : "me.panavtec:threaddecoratedview-compiler:${versionThreadDecoratorView}",
+            retrofit              : "com.squareup.retrofit2:retrofit:${versionRetrofit}",
+            gsonRetrofit          : "com.squareup.retrofit2:converter-gson:${versionRetrofit}",
+            okHttp3               : "com.squareup.okhttp3:okhttp:${versionOkHttp3}",
+            urlConnection         : "com.squareup.okhttp3:okhttp-urlconnection:${versionOkHttp3}",
+            logginInterceptor     : "com.squareup.okhttp3:logging-interceptor:${versionOkHttp3}"
+    ]
+
+    testAndroidLibs = [
+            espressoCore: "com.android.support.test.espresso:espresso-core:${versionEspresso}",
+            testRunner  : "com.android.support.test:runner:${versionRunner}",
+            testRules   : "com.android.support.test:rules:${versionRunner}"
+    ]
+
+    testLibs = [
+            junit: "junit:junit:${versionJunit}"
+    ]
+}
