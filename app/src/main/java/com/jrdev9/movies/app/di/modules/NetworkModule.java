@@ -3,7 +3,7 @@ package com.jrdev9.movies.app.di.modules;
 
 import com.google.gson.Gson;
 import com.jrdev9.movies.BuildConfig;
-import com.jrdev9.movies.app.data.api.ApiEndPoint;
+import com.jrdev9.movies.app.data.api.ApiTheMovieDatabaseEndPoint;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -41,7 +41,7 @@ public class NetworkModule {
     @Singleton
     @Named("EndPoint")
     String provideEndPoint() {
-        return ApiEndPoint.BASE_URL.concat(ApiEndPoint.VERSION);
+        return ApiTheMovieDatabaseEndPoint.BASE_URL.concat(ApiTheMovieDatabaseEndPoint.VERSION);
     }
 
     @Provides
@@ -59,7 +59,7 @@ public class NetworkModule {
 
     @Provides
     @Singleton
-    ApiEndPoint provideApiService(Retrofit retrofit) {
-        return retrofit.create(ApiEndPoint.class);
+    ApiTheMovieDatabaseEndPoint provideApiService(Retrofit retrofit) {
+        return retrofit.create(ApiTheMovieDatabaseEndPoint.class);
     }
 }

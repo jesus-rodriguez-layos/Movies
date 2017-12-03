@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.jrdev9.movies.app.di.modules.AppModule;
 import com.jrdev9.movies.app.di.modules.BuildersModule;
+import com.jrdev9.movies.app.di.modules.ExecutorModule;
 import com.jrdev9.movies.app.di.modules.NetworkModule;
 import com.jrdev9.movies.app.presentation.MoviesApplication;
 
@@ -19,7 +20,8 @@ import dagger.android.AndroidInjectionModule;
                 AndroidInjectionModule.class,
                 AppModule.class,
                 BuildersModule.class,
-                NetworkModule.class
+                NetworkModule.class,
+                ExecutorModule.class
         }
 )
 public interface AppComponent {
