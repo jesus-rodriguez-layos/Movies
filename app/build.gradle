@@ -42,6 +42,7 @@ dependencies {
     implementation rootProject.androidLibs.support
     implementation rootProject.androidLibs.appcompat
     implementation rootProject.androidLibs.constraintLayout
+    implementation rootProject.androidLibs.recycler
 
     // Third libs
     implementation rootProject.libs.dagger

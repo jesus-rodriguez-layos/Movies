@@ -15,7 +15,7 @@ ext {
     androidCompileSdkVersion = 27
 
     // Android libraries
-    versionSupportLibrary = '27.0.0'
+    versionSupportLibrary = '27.0.2'
     versionConstraintLayout = '1.0.2'
 
     // Third party Libraries
@@ -40,7 +40,8 @@ ext {
     androidLibs = [
             support         : "com.android.support:support-compat:${versionSupportLibrary}",
             appcompat       : "com.android.support:appcompat-v7:${versionSupportLibrary}",
-            constraintLayout: "com.android.support.constraint:constraint-layout:${versionConstraintLayout}"
+            constraintLayout: "com.android.support.constraint:constraint-layout:${versionConstraintLayout}",
+            recycler        : "com.android.support:recyclerview-v7:${versionSupportLibrary}"
     ]
 
     libs = [
