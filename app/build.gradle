@@ -4,6 +4,9 @@ android {
     compileSdkVersion rootProject.androidCompileSdkVersion
     buildToolsVersion rootProject.androidBuildToolsVersion
 
+    def STRING = "String"
+    def THE_MOVIE_DB_API_KEY = "THE_MOVIE_DB_API_KEY"
+
     defaultConfig {
         applicationId "com.jrdev9.movies"
         versionCode 1
@@ -15,6 +18,10 @@ android {
         targetSdkVersion 27
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes.each {
+        it.buildConfigField STRING, THE_MOVIE_DB_API_KEY, getTMDBApiKey()
     }
 
     buildTypes {
@@ -75,5 +82,11 @@ dependencies {
 
     // Test libs unit
     testCompile rootProject.testLibs.junit
+}
+
+static def getTMDBApiKey() {
+    Properties props = new Properties()
+    props.load(new FileInputStream(new File('key.properties')))
+    return props['TMDB_API_KEY']
 }
 
