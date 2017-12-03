@@ -6,7 +6,7 @@ allprojects {
 }
 
 ext {
-    buildGradleVersion = '3.1.0-alpha02'
+    buildGradleVersion = '3.1.0-alpha04'
 
     // Android config
     androidBuildToolsVersion = '27.0.0'
@@ -24,6 +24,7 @@ ext {
     versionThreadDecoratorView = '1.5.3'
     versionRetrofit = '2.3.0'
     versionOkHttp3 = '3.9.0'
+    versionGlide = '4.3.1'
 
     // Android Test Libraries
     versionEspresso = '3.0.1'
@@ -43,20 +44,22 @@ ext {
     ]
 
     libs = [
-            dagger                : "com.google.dagger:dagger:${versionDagger}",
-            daggerSupport         : "com.google.dagger:dagger-compiler:${versionDagger}",
-            daggerAndroid         : "com.google.dagger:dagger-android:${versionDagger}",
-            daggerAndroidSupport  : "com.google.dagger:dagger-android-support:${versionDagger}",
-            daggerAndroidProcessor: "com.google.dagger:dagger-android-processor:${versionDagger}",
-            butterKnife           : "com.jakewharton:butterknife:${versionButterKnife}",
-            butterKnifeProcessor  : "com.jakewharton:butterknife-compiler:${versionButterKnife}",
-            threadDecoratorView            : "me.panavtec:threaddecoratedview-common:${versionThreadDecoratorView}",
-            threadDecoratorViewCompiler    : "me.panavtec:threaddecoratedview-compiler:${versionThreadDecoratorView}",
-            retrofit              : "com.squareup.retrofit2:retrofit:${versionRetrofit}",
-            gsonRetrofit          : "com.squareup.retrofit2:converter-gson:${versionRetrofit}",
-            okHttp3               : "com.squareup.okhttp3:okhttp:${versionOkHttp3}",
-            urlConnection         : "com.squareup.okhttp3:okhttp-urlconnection:${versionOkHttp3}",
-            logginInterceptor     : "com.squareup.okhttp3:logging-interceptor:${versionOkHttp3}"
+            dagger                     : "com.google.dagger:dagger:${versionDagger}",
+            daggerSupport              : "com.google.dagger:dagger-compiler:${versionDagger}",
+            daggerAndroid              : "com.google.dagger:dagger-android:${versionDagger}",
+            daggerAndroidSupport       : "com.google.dagger:dagger-android-support:${versionDagger}",
+            daggerAndroidProcessor     : "com.google.dagger:dagger-android-processor:${versionDagger}",
+            butterKnife                : "com.jakewharton:butterknife:${versionButterKnife}",
+            butterKnifeProcessor       : "com.jakewharton:butterknife-compiler:${versionButterKnife}",
+            threadDecoratorView        : "me.panavtec:threaddecoratedview-common:${versionThreadDecoratorView}",
+            threadDecoratorViewCompiler: "me.panavtec:threaddecoratedview-compiler:${versionThreadDecoratorView}",
+            retrofit                   : "com.squareup.retrofit2:retrofit:${versionRetrofit}",
+            gsonRetrofit               : "com.squareup.retrofit2:converter-gson:${versionRetrofit}",
+            okHttp3                    : "com.squareup.okhttp3:okhttp:${versionOkHttp3}",
+            urlConnection              : "com.squareup.okhttp3:okhttp-urlconnection:${versionOkHttp3}",
+            logginInterceptor          : "com.squareup.okhttp3:logging-interceptor:${versionOkHttp3}",
+            glide                      : "com.github.bumptech.glide:glide:${versionGlide}",
+            glideCompiler              : "com.github.bumptech.glide:compiler:${versionGlide}"
     ]
 
     testAndroidLibs = [

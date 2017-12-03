@@ -28,6 +28,11 @@ android {
             }
         }
     }
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 
 dependencies {
@@ -53,6 +58,8 @@ dependencies {
     implementation rootProject.libs.okHttp3
     implementation rootProject.libs.urlConnection
     implementation rootProject.libs.logginInterceptor
+    implementation rootProject.libs.glide
+    annotationProcessor rootProject.libs.glideCompiler
 
     // Android test libs
     androidTestCompile(rootProject.testAndroidLibs.espressoCore, {
