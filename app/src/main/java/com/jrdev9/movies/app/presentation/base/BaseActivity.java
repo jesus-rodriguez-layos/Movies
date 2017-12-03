@@ -4,9 +4,6 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import javax.inject.Inject;
 
@@ -21,19 +18,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     @Inject
     DispatchingAndroidInjector<Fragment> fragmentInjector;
 
-    @LayoutRes
-    protected abstract int getActivityLayout();
-
-    protected abstract void setupInjection();
-
-    protected abstract BasePresenter getPresenter();
-
-    protected Unbinder unbinder;
-
-    @Override
-    public AndroidInjector<Fragment> fragmentInjector() {
-        return fragmentInjector;
-    }
+    protected Unbinder viewInjector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,26 +28,42 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         setupInjectViews();
     }
 
-    protected void setupLayout() {
-        View rootView = inflateView(getActivityLayout(), null, false);
-        setContentView(rootView);
+    private void setupLayout() {
+        setContentView(getActivityLayout());
     }
 
-    protected View inflateView(@LayoutRes int layoutId, ViewGroup parent, boolean attach) {
-        LayoutInflater layoutInflater = LayoutInflater.from(this);
-        return layoutInflater.inflate(layoutId, parent, attach);
+    private void setupInjectViews() {
+        viewInjector = ButterKnife.bind(this);
     }
 
-    protected void setupInjectViews() {
-        unbinder = ButterKnife.bind(this);
+    @Override
+    public AndroidInjector<Fragment> fragmentInjector() {
+        return fragmentInjector;
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unbinder.unbind();
+        viewInjector.unbind();
         if (getPresenter() != null) {
             getPresenter().detachView();
         }
     }
+
+    @Override
+    public void showLoading() {
+        //TODO: showLoading
+    }
+
+    @Override
+    public void hideLoading() {
+        //TODO: hideLoading
+    }
+
+    @LayoutRes
+    protected abstract int getActivityLayout();
+
+    protected abstract void setupInjection();
+
+    protected abstract BasePresenter getPresenter();
 }

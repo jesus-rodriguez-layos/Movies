@@ -5,4 +5,7 @@ import me.panavtec.threaddecoratedview.views.qualifiers.ThreadDecoratedView;
 @ThreadDecoratedView
 public interface BaseView {
 
+    void showLoading();
+
+    void hideLoading();
 }
