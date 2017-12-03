@@ -21,7 +21,7 @@ android {
     }
 
     buildTypes.each {
-        it.buildConfigField STRING, THE_MOVIE_DB_API_KEY, getTMDBApiKey()
+        it.buildConfigField STRING, THE_MOVIE_DB_API_KEY, getTheMovieDatabaseApiKey()
     }
 
     buildTypes {
@@ -84,7 +84,7 @@ dependencies {
     testCompile rootProject.testLibs.junit
 }
 
-static def getTMDBApiKey() {
+static def getTheMovieDatabaseApiKey() {
     Properties props = new Properties()
     props.load(new FileInputStream(new File('key.properties')))
     return props['TMDB_API_KEY']
